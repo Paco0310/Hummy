@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "427151546530",
+    "project_id": "hummy-46ba4",
+    "storage_bucket": "hummy-46ba4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427151546530:android:bd8ed568e2a6b39e835ffb",
+        "android_client_info": {
+          "package_name": "com.vantuit.hummy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427151546530-kcl57i2updeat222vu75iqu1ahcsnvie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vantuit.hummy",
+            "certificate_hash": "fbd6fc816f35d8c1f1eb27cac9266f60e3f58228"
+          }
+        },
+        {
+          "client_id": "427151546530-n0bpf9oilsvd2jivja73a7o7jf4g5a9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfBmIdPWzdVfaW-CQwaHlN68t2AC_61EU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427151546530-n0bpf9oilsvd2jivja73a7o7jf4g5a9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
