@@ -1,7 +1,11 @@
-package com.vantuit.hummy.ui;
+package com.vantuit.hummy.models;
 
 public class Usuario {
-    public String ID,CORREO,NOMBRE,DIRECCION, TELEFONO,FOTO;
+    private String ID,CORREO,NOMBRE,DIRECCION,TELEFONO,FOTO;
+
+    public Usuario() {
+
+    }
 
     public Usuario(String ID, String CORREO, String NOMBRE, String DIRECCION, String TELEFONO, String FOTO) {
         this.ID = ID;

@@ -1,9 +1,13 @@
-package com.vantuit.hummy.ui;
+package com.vantuit.hummy.models;
 
 import androidx.annotation.NonNull;
 
 public class Domicilio {
-    public String CALLE, NUM_INTERNO,NUM_EXTERNO,COLONIA,CP,REFERENCIA,ALIAS,ID_USUARIO;
+    private String CALLE, NUM_INTERNO,NUM_EXTERNO,COLONIA,CP,REFERENCIA,ALIAS,ID_USUARIO;
+
+    public Domicilio() {
+
+    }
 
     public Domicilio(String CALLE, String NUM_INTERNO, String NUM_EXTERNO, String COLONIA, String CP, String REFERENCIA, String ALIAS, String ID_USUARIO) {
         this.CALLE = CALLE;
