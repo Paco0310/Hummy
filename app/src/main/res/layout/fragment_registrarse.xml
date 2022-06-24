@@ -85,6 +85,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
@@ -108,6 +109,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCorreo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
@@ -131,6 +133,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContacto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
@@ -154,6 +157,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContra"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
@@ -178,6 +182,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etConfirmarContra"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
@@ -188,7 +193,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/cbTerminos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -210,6 +215,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/iniciaSesion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -230,7 +236,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bInscribirse"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"

@@ -96,6 +96,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCorreo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
@@ -119,6 +120,7 @@
                 tools:ignore="MissingConstraints">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/cooperhewitt_heavy"
@@ -159,7 +161,7 @@
 
 
                 <ImageButton
-                    android:id="@+id/iniciargoogle"
+                    android:id="@+id/iniciarGoogle"
                     android:layout_width="75dp"
                     android:layout_height="75dp"
                     android:backgroundTint="#00FFFFFF"
@@ -190,6 +192,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/inscribirse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -210,7 +213,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bIniciaSesion"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
