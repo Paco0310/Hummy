@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Desktop/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/activity_login.xml" value="0.22010869565217392" />
+        <entry key="..\:/Users/User/Desktop/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/fragment_registrarse.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/User/Desktop/LALO/proyectos personales/HummyApp/Hummy/app/src/main/res/layout/fragment_sesion.xml" value="0.264" />
         <entry key="..\:/Users/paco0/Documents/Proyectos/Android/Hummy/app/src/main/res/layout/activity_login.xml" value="0.1322463768115942" />
       </map>
     </option>

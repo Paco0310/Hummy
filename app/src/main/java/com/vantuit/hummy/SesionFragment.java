@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -14,14 +15,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,8 +44,11 @@ public class SesionFragment extends Fragment {
 
     View root;
     private FirebaseAuth auth;
-    GoogleSignInClient mGoogleSignInClient;
-    private static int  RC_SIGN_IN = 100;
+    ImageView google_img;
+
+    GoogleSignInOptions gso;
+    GoogleSignInClient gsc;
+
 
     EditText etCorreo, etPassword;
     Button iniciaSesion;
@@ -49,8 +56,21 @@ public class SesionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.fragment_sesion, container, false);
-        auth = FirebaseAuth.getInstance();
-        creaSolicitud(); //Crea la solicitud para iniciar secion con google
+
+        google_img = root.findViewById(R.id.iniciarGoogle);
+
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        gsc = GoogleSignIn.getClient(getActivity(),gso);
+
+        google_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SignIn();
+            }
+        });
+
         etCorreo = root.findViewById(R.id.etCorreo);
         etPassword = root.findViewById(R.id.etPassword);
         iniciaSesion = root.findViewById(R.id.bIniciaSesion);
@@ -86,92 +106,32 @@ public class SesionFragment extends Fragment {
         });
 
         return root;
-
     }
 
+    private void SignIn() {
 
-    public void onStart() {//EN TEORIA ES UN METODO QUE SE EJECUTA AL INICIO DE LA APP Y REVISA EL LOGUEO
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = auth.getCurrentUser();
-        if(currentUser != null){
-            currentUser.reload();
-        }
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(getActivity(), new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // ...
-                    }
-                });
+        Intent intent  = gsc.getSignInIntent();
+        startActivityForResult(intent,100);
     }
 
-    //------------ inicio de sesion con google
-    public void creaSolicitud() //Configuramos el inicio de sesion de google
-    {
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
-
-        // Check for existing Google Sign In account, if the user is already signed in
-        // the GoogleSignInAccount will be non-null.
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
-        //Opcional
-        SignInButton signInButton = root.findViewById(R.id.sign_in_button);
-        signInButton.setSize(SignInButton.SIZE_STANDARD);
-
-        signInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                InicioGoogle();
-            }
-        });
-    }
-    //----------------------------------------------------------------------------------------------------------------------------
-    //INICIO DE SESION CON GOOGLE
-    public void InicioGoogle(){
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
-    }
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
+        if(requestCode == 100){
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
+            try {
+                task.getResult(ApiException.class);
+                HomeActivity();
+            } catch (ApiException e) {
+                Toast.makeText(getActivity(), "Error "+e, Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-
-
-            GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getActivity().getApplicationContext());
-            if (acct != null) {
-                String personName = acct.getDisplayName();
-                String personEmail = acct.getEmail();
-                String personId = acct.getId();
-                Uri personPhoto = acct.getPhotoUrl();
-                Toast.makeText(getActivity(), "Bienvenido de Nuevo "+personName, Toast.LENGTH_SHORT).show();
-
-            }
-            //finish();
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Toast.makeText(getActivity(), "codigo de error=\"" + e, Toast.LENGTH_SHORT).show();
-        }
-    }//------------------------------------------------------------------------
-    public void terminaRegisto()
-    {
-        FragmentManager fm = getFragmentManager();
-        SesionFragment fragment = new SesionFragment() ;
-        fm.beginTransaction().replace(R.id.fragment_registro, fragment).commit();
+    private void HomeActivity() {
+        /*
+        Intent intent = new Intent(getActivity().getApplicationContext(),HomeActivity().class);
+        startActivity(intent);*/
+        Toast.makeText(getActivity(), "Sesion Iniciada con éxito\nAquí va el intent a la activity HOME", Toast.LENGTH_SHORT).show();
     }
 }
