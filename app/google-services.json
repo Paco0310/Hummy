@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "427151546530-jv08luf679igjh89n11qflf71aqbfe61.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vantuit.hummy",
+            "certificate_hash": "fbd6fc816f35d8c1f1eb27cac9266f60e3f58228"
+          }
+        },
+        {
           "client_id": "427151546530-n0bpf9oilsvd2jivja73a7o7jf4g5a9q.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -28,7 +36,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "427151546530-n0bpf9oilsvd2jivja73a7o7jf4g5a9q.apps.googleusercontent.com",
+              "client_id": "427151546530-fs5f4icfd8pf34p1vmgng54tk4f8khrb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
