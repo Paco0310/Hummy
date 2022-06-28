@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="iniciar_sesion"><u>Iniciar sesión</u></string>
     <string name="inscribirse"><u>Inscribirse</u></string>
+
+    <string name="facebook_app_id">566606434842576</string>
+    <string name="fb_login_protocol_scheme">fb566606434842576</string>
+    <string name="facebook_client_token">89e9fdf398349841421aa04e7490db53</string>
+
 </resources>
