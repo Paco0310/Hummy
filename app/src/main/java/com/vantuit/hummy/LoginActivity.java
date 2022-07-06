@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         adapter = new ViewPageAdapter(fragmentManager, getLifecycle());
 
-        //Añadir los fragmentos
+        //Añadir los fragmentos al adapter
         adapter.addFragment(new SesionFragment());
         adapter.addFragment(new RegistrarseFragment());
 
